@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function(){var t;try{t=localStorage.getItem('theme')}catch(e){}
+if(!t){t=window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}
+document.documentElement.setAttribute('data-theme',t)})();
+</script>
+<title>Pentani Madhu | AI &amp; ML Developer | Full-Stack Trainee</title>
+<meta name="description" content="Portfolio of Pentani Madhu, B.Tech CSE (AI &amp; ML) student building machine learning and web projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1117; --surface:#151b23; --line:#263040; --text:#e6edf3; --muted:#8b98a8;
+  --accent:#4cc2ff; --accent-soft:rgba(76,194,255,.12); --accent-hover:#7ad3ff; --on-accent:#04121c;
+  --nav-bg:rgba(13,17,23,.88); --dot:#2d3846; --code-text:#c3cdd9; --k:#ff7b9c; --s:#9be28f; --c:#5f6c7b;
+  color-scheme:dark;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+:root[data-theme="light"]{
+  --bg:#f7f9fc; --surface:#ffffff; --line:#dbe2ec; --text:#14202e; --muted:#566475;
+  --accent:#0b6bcb; --accent-soft:rgba(11,107,203,.10); --accent-hover:#0956a5; --on-accent:#ffffff;
+  --nav-bg:rgba(247,249,252,.88); --dot:#cfd8e3; --code-text:#2b3a4b; --k:#c2255c; --s:#2b8a3e; --c:#8a97a6;
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:var(--nav-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+.logo{font-weight:700;font-size:17px;letter-spacing:-.01em;color:var(--text)}
+.logo:hover{color:var(--accent)}
+nav ul{display:flex;gap:6px;list-style:none;font-size:14px}
+nav ul a{display:block;padding:8px 12px;border-radius:8px;color:var(--muted);transition:color .2s,background .2s}
+nav ul a:hover,nav ul a.active{color:var(--text);background:var(--accent-soft)}
+.menu-btn{display:none}
+section,header{scroll-margin-top:64px}
+
+nav .right{display:flex;align-items:center;gap:20px}
+.theme-btn{background:none;border:1px solid var(--line);color:var(--text);width:38px;height:38px;border-radius:8px;cursor:pointer;display:grid;place-items:center;transition:border-color .2s}
+.theme-btn:hover{border-color:var(--accent)}
+.theme-btn svg{width:18px;height:18px}
+.theme-btn .moon{display:none}
+:root[data-theme="light"] .theme-btn .sun{display:none}
+:root[data-theme="light"] .theme-btn .moon{display:block}
+
+/* hero */
+.hero{padding:88px 0 72px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
+h1{font-size:clamp(36px,6vw,56px);line-height:1.08;letter-spacing:-.03em;font-weight:700}
+.role{margin-top:14px;font-size:20px;color:var(--muted)}
+.bio{margin-top:20px;max-width:46ch;color:var(--muted)}
+.cta{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:11px 20px;border-radius:8px;font-size:14px;font-weight:600;border:1px solid var(--line);transition:border-color .2s,background .2s}
+.btn.primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn.primary:hover{background:var(--accent-hover)}
+.btn:not(.primary):hover{border-color:var(--accent)}
+
+.code{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-family:var(--mono);font-size:13.5px}
+.code-bar{display:flex;gap:7px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.code-bar i{width:11px;height:11px;border-radius:50%;background:var(--dot)}
+.code pre{padding:20px;overflow-x:auto;line-height:1.8;color:var(--code-text)}
+.k{color:var(--k)}.s{color:var(--s)}.p{color:var(--accent)}.c{color:var(--c)}
+
+/* sections */
+section{padding:72px 0;border-top:1px solid var(--line)}
+h2{font-size:28px;letter-spacing:-.02em;margin-bottom:8px}
+.sub{color:var(--muted);margin-bottom:36px}
+
+/* projects */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.card h3{font-size:18px;margin-bottom:8px}
+.card p{color:var(--muted);font-size:15px;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.tags span{font-family:var(--mono);font-size:12px;color:var(--accent);background:var(--accent-soft);padding:3px 10px;border-radius:99px}
+.links{display:flex;gap:18px;font-size:14px;font-weight:500}
+.links a{color:var(--text);border-bottom:1px solid var(--line)}
+.links a:hover{border-color:var(--accent);color:var(--accent)}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.skill-box{border:1px solid var(--line);border-radius:12px;padding:22px}
+.skill-box h3{font-size:15px;margin-bottom:12px}
+.skill-box ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.skill-box li{font-family:var(--mono);font-size:13px;color:var(--muted);border:1px solid var(--line);padding:4px 10px;border-radius:6px}
+
+/* experience */
+.job{display:grid;grid-template-columns:150px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--line)}
+.job:last-child{border-bottom:0}
+.when{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.job h3{font-size:17px}
+.job .org{color:var(--accent);font-size:15px}
+.job p{margin-top:8px;color:var(--muted);font-size:15px}
+
+/* contact */
+.contact{text-align:center}
+.contact p{max-width:48ch;margin:0 auto 28px;color:var(--muted)}
+footer{padding:28px 0;text-align:center;font-size:13px;color:var(--muted);border-top:1px solid var(--line)}
+
+@media(max-width:760px){
+  .hero{padding:56px 0 48px}
+  .hero .wrap{grid-template-columns:1fr}
+  nav .right{gap:10px}
+  .menu-btn{display:grid;background:none;border:1px solid var(--line);color:var(--text);width:38px;height:38px;border-radius:8px;cursor:pointer;place-items:center}
+  .menu-btn svg{width:18px;height:18px}
+  nav ul{display:none;position:absolute;top:60px;left:0;right:0;flex-direction:column;gap:0;padding:8px 16px 14px;background:var(--bg);border-bottom:1px solid var(--line)}
+  nav ul.open{display:flex}
+  nav ul a{padding:12px 8px;font-size:15px}
+  .job{grid-template-columns:1fr;gap:6px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">Pentani Madhu</a>
+    <div class="right">
+      <ul id="navLinks">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch between dark and light theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <h1>Pentani Madhu</h1>
+      <p class="role">AI &amp; ML Developer | Full-Stack Trainee</p>
+      <p class="bio">B.Tech CSE (AI &amp; ML) student in Hyderabad. I build machine learning models and wrap them in simple web apps, with a focus on deep learning, computer vision, and problem solving. Currently training in full-stack development.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">View projects</a>
+        <a class="btn" href="resume.pdf" download>Download resume</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div class="code" aria-hidden="true">
+      <div class="code-bar"><i></i><i></i><i></i></div>
+<pre><span class="k">const</span> <span class="p">developer</span> = {
+  name: <span class="s">"Pentani Madhu"</span>,
+  location: <span class="s">"Hyderabad, India"</span>,
+  stack: [<span class="s">"Python"</span>, <span class="s">"Java"</span>, <span class="s">"Flask"</span>],
+  focus: [
+    <span class="s">"Deep Learning"</span>,
+    <span class="s">"Data Analytics"</span>,
+  ],
+  training: <span class="s">"Full-Stack"</span>,
+  openToWork: <span class="k">true</span>,
+};</pre>
+    </div>
+  </div>
+</header>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <p class="sub">A few things I've built.</p>
+    <div class="grid">
+      <article class="card">
+        <h3>Pneumonia Detection &amp; Medical Assistance</h3>
+        <p>A CNN model that detects pneumonia from chest X-ray images, with a web interface that shows the prediction and basic health guidance. Includes image preprocessing, training, and evaluation.</p>
+        <div class="tags"><span>Python</span><span>CNN</span><span>Flask</span><span>NumPy</span><span>Pandas</span></div>
+        <div class="links"><a href="https://pneumoniaai-pjbyjkrgxgw9njvqtccv8k.streamlit.app/" target="_blank" rel="noopener">Live demo</a><a href="https://github.com/Madhu76599" target="_blank" rel="noopener">GitHub</a></div>
+      </article>
+      <article class="card">
+        <h3>EcoVision AI</h3>
+        <p>An AI solution that analyzes visual data to support environmental awareness and sustainability. The trained model runs inside an interactive web app.</p>
+        <div class="tags"><span>Python</span><span>Machine Learning</span><span>Computer Vision</span><span>Flask</span></div>
+        <div class="links"><a href="https://github.com/Madhu76599" target="_blank" rel="noopener">GitHub</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <p class="sub">What I work with.</p>
+    <div class="skills">
+      <div class="skill-box"><h3>Languages</h3><ul><li>Java</li><li>Python</li><li>SQL</li><li>JavaScript</li></ul></div>
+      <div class="skill-box"><h3>Web</h3><ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>JSP</li><li>Servlets</li><li>Flask</li><li>Full-Stack (learning)</li></ul></div>
+      <div class="skill-box"><h3>Tools</h3><ul><li>Git</li><li>VS Code</li><li>Eclipse</li><li>Apache Tomcat</li></ul></div>
+      <div class="skill-box"><h3>Core concepts</h3><ul><li>Data Structures &amp; Algorithms</li><li>OOP</li><li>DBMS</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <h2>Education</h2>
+    <p class="sub">My academic path so far.</p>
+    <div class="job">
+      <div class="when">Present</div>
+      <div><h3>Full-Stack Development Training</h3><div class="org">In progress</div><p>Learning to build complete web applications, front end to back end, alongside my AI &amp; ML studies.</p></div>
+    </div>
+    <div class="job">
+      <div class="when">2024 - 2027</div>
+      <div><h3>B.Tech, CSE (AI &amp; ML)</h3><div class="org">Geethanjali College of Engineering &amp; Technology</div><p>CGPA: 7.5</p></div>
+    </div>
+    <div class="job">
+      <div class="when">2021 - 2024</div>
+      <div><h3>Diploma, CSE</h3><div class="org">Govt. Model Residential Polytechnic, Gajwel</div><p>CGPA: 7.89</p></div>
+    </div>
+    <div class="job">
+      <div class="when">2020 - 2021</div>
+      <div><h3>SSC</h3><div class="org">Telangana State Residential School, Keesara</div><p>GPA: 10</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="wrap">
+    <h2>Certifications</h2>
+    <p class="sub">Courses and credentials I've completed.</p>
+    <div class="skills">
+      <div class="skill-box"><h3>AI Certification</h3><ul><li>SkillDzire</li></ul></div>
+      <div class="skill-box"><h3>Oracle Certification</h3><ul><li>Oracle Academy</li></ul></div>
+      <div class="skill-box"><h3>Python Certification</h3><ul><li>Udemy</li></ul></div>
+      <div class="skill-box"><h3>AI Skills Passport</h3><ul><li>Skills credential</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Let's connect</h2>
+    <p>I'm looking for internships and entry-level roles in AI, ML, and software development. The fastest way to reach me is email.</p>
+    <div class="cta" style="justify-content:center">
+      <a class="btn primary" href="mailto:madhupentani@gmail.com">Email me</a>
+      <a class="btn" href="resume.pdf" download>Resume</a>
+      <a class="btn" href="https://github.com/Madhu76599" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>&copy; 2026 Pentani Madhu</footer>
+
+<script>
+document.getElementById('themeBtn').addEventListener('click',function(){
+  var root=document.documentElement;
+  var next=root.getAttribute('data-theme')==='light'?'dark':'light';
+  root.setAttribute('data-theme',next);
+  try{localStorage.setItem('theme',next)}catch(e){}
+});
+</script>
+<script>
+var navLinks=document.getElementById('navLinks'),menuBtn=document.getElementById('menuBtn');
+menuBtn.addEventListener('click',function(){
+  var open=navLinks.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded',open);
+});
+navLinks.addEventListener('click',function(e){
+  if(e.target.tagName==='A'){navLinks.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')}
+});
+if('IntersectionObserver' in window){
+  var links=navLinks.querySelectorAll('a');
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){
+      if(en.isIntersecting){
+        links.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')==='#'+en.target.id)});
+      }
+    });
+  },{rootMargin:'-45% 0px -50% 0px'});
+  document.querySelectorAll('section[id]').forEach(function(sec){io.observe(sec)});
+}
+</script>
+</body>
+</html>
